@@ -3,6 +3,8 @@ package com.will.parcial1.model;
 public class User {
 
     private String id;
+    private String type = "User";
+
 
     public User(String id) {
         this.id = id;
@@ -18,4 +20,15 @@ public class User {
     public void setId(String id) {
         this.id = id;
     }
+
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
+    }
+
+
+
 }

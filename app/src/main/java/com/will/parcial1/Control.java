@@ -8,6 +8,7 @@ import android.view.View.OnClickListener;
 import android.widget.Button;
 
 import com.google.gson.Gson;
+import com.will.parcial1.model.Color;
 import com.will.parcial1.model.Coordenada;
 
 public class Control extends AppCompatActivity implements OnClickListener {
@@ -23,6 +24,7 @@ public class Control extends AppCompatActivity implements OnClickListener {
     private TCPSingleton tcp;
     private Gson gson ;
     private Coordenada coordenada;
+    private Color color;
 
 
     @Override
@@ -50,7 +52,7 @@ public class Control extends AppCompatActivity implements OnClickListener {
         switch(view.getId()){
             case R.id.ubtn:
                 gson = new Gson();
-                posy-=1;
+                posy-=10;
 
                 coordenada = new Coordenada(posx,posy);
                 msg=gson.toJson(coordenada);
@@ -60,7 +62,7 @@ public class Control extends AppCompatActivity implements OnClickListener {
 
             case R.id.dbtn:
                 gson = new Gson();
-                posy+=1;
+                posy+=10;
 
                 coordenada = new Coordenada(posx,posy);
                 msg=gson.toJson(coordenada);
@@ -70,7 +72,7 @@ public class Control extends AppCompatActivity implements OnClickListener {
 
             case R.id.lbtn:
                 gson = new Gson();
-                posx-=1;
+                posx-=10;
 
                 coordenada = new Coordenada(posx,posy);
                 msg=gson.toJson(coordenada);
@@ -80,13 +82,27 @@ public class Control extends AppCompatActivity implements OnClickListener {
 
             case R.id.rbtn:
                 gson = new Gson();
-                posx+=1;
+                posx+=10;
 
                 coordenada = new Coordenada(posx,posy);
                 msg=gson.toJson(coordenada);
                 tcp.sendMessage(msg);
 
                 break;
+
+
+            case R.id.cbtn:
+
+                int r= (int)(Math.random()*255);
+                int g= (int)(Math.random()*255);
+                int b= (int)(Math.random()*255);
+
+                gson = new Gson();
+
+
+                color = new Color(r,g,b);
+                msg=gson.toJson(color);
+                tcp.sendMessage(msg);
 
         }
    }

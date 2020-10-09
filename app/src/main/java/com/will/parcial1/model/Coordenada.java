@@ -4,6 +4,7 @@ public class Coordenada {
 
     private int x;
     private int y;
+    private String type = "Coordenada";
 
     public Coordenada(int x, int y) {
         this.x = x;
@@ -28,5 +29,14 @@ public class Coordenada {
     public void setY(int y) {
         this.y = y;
     }
+
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
+    }
+
 
 }
